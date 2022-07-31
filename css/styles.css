@@ -119,12 +119,26 @@ body {
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--primary-text-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .menu-link:hover,
 .menu-link:focus {
   color: var(--accent-color);
+  transition: color;
+}
+.current::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  background-color: var(--accent-color);
 }
 .current {
+  position: relative;
   color: var(--accent-color);
 }
 .contact-mail {
@@ -135,6 +149,7 @@ body {
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--secondary-text-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contact-phone-number {
   display: flex;
@@ -144,6 +159,7 @@ body {
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--secondary-text-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contact-list {
   display: flex;
@@ -206,6 +222,8 @@ body {
   padding: 10px 32px;
   cursor: pointer;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-center {
   display: flex;
@@ -275,7 +293,27 @@ body {
   padding-top: 0px;
   padding-bottom: 94px;
 }
-
+.pictures {
+  position: relative;
+}
+.pic-text-gal {
+  position: absolute;
+  top: 224px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  width: 370px;
+  height: 70px;
+  padding-top: 27px;
+  padding-bottom: 27px;
+  padding-left: 107px;
+  padding-right: 107px;
+  background: rgba(47, 48, 58, 0.8);
+  color: #ffffff;
+}
 .work {
   display: flex;
   gap: 30px;
@@ -322,6 +360,7 @@ body {
   height: 44px;
   border-radius: 50%;
   color: var(--icon-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-list-link:hover,
 .social-list-link:focus {
@@ -375,6 +414,7 @@ body {
   border: 1px solid var(--icon-color);
   border-radius: 4px;
   color: var(--icon-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .icon-client {
   fill: currentColor;
@@ -395,6 +435,7 @@ body {
   line-height: 24px;
   letter-spacing: 0.03em;
   color: var(--fon-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .mail {
   font-size: 14px;
@@ -402,6 +443,7 @@ body {
   line-height: 24px;
   letter-spacing: 0.03em;
   color: rgba(255, 255, 255, 0.6);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .tel {
   font-size: 14px;
@@ -409,6 +451,7 @@ body {
   line-height: 24px;
   letter-spacing: 0.03em;
   color: rgba(255, 255, 255, 0.6);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .address-list:not(:last-child) {
@@ -451,6 +494,8 @@ body {
   border-radius: 50%;
   fill: var(--fon-color);
   background-color: rgba(255, 255, 255, 0.1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .socail-list-icon-footer {
   fill: var(--fon-color);
@@ -488,6 +533,8 @@ body {
   border-radius: 4px;
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-portfolio:hover,
 .btn-portfolio:focus {
@@ -516,7 +563,32 @@ body {
   letter-spacing: 0.03em;
   color: var(--secondary-text-color);
 }
-.portfolio {
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  transform: translate(0, 100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding-top: 63px;
+  padding-bottom: 63px;
+  padding-left: 24px;
+  padding-right: 24px;
+  font-weight: 400px;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--fon-color);
+  background: rgba(33, 150, 243, 0.9);
+}
+.team-list-img-vrapper {
+  position: relative;
+  overflow: hidden;
+}
+.pic-link:hover .overlay,
+.pic-link:focus .overlay {
+  transform: translate(0, 0);
 }
 .cards {
   display: flex;
@@ -526,6 +598,8 @@ body {
 }
 .pic-link {
   display: block;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .pic-link:hover,
 .pic-link:focus {
@@ -545,3 +619,48 @@ body {
   display: flex;
   align-items: baseline;
 }
+/* =================MODAL WINDOW================== */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.modal-win {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 528px;
+  height: 580px;
+  background-color: var(--fon-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+.modal-close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  border: 1px solid var(--secondary-text-color);
+  padding: 0;
+}
+/* ================= /MODAL WINDOW================== */
